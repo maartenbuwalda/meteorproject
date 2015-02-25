@@ -1,0 +1,15 @@
+<template name="userItem">
+	<div class="user">
+		<div class="user-content">
+			<h3>{{username}}{{#if checkUser}} (you){{/if}}</h3>
+			<figure>
+				<img src="http://www.earthtimes.org/newsimage/revelatory-ape-maturity-sumatra-borneo_22313.jpg" alt="ape">
+			</figure>
+			{{#if checkUser}}
+			<a class="discuss btn btn-default inactive">Challenge</a>
+			{{else}}
+			<a class="discuss btn btn-default" id="challenge-btn">Challenge</a>
+			{{/if}}
+		</div>
+	</div>
+</template>

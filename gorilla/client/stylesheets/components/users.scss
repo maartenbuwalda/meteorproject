@@ -1,0 +1,52 @@
+.users {
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;      /* TWEENER - IE 10 */
+	display: -webkit-flex;     /* NEW - Chrome */
+	display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+	flex-direction: row;
+	flex-wrap: nowrap;
+	-webkit-flex-flow: row wrap;
+	-moz-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-justify-content: flex-start;
+  	justify-content: flex-start;
+
+	.user {
+		width: 10%;
+		overflow: hidden;
+
+		h3 {
+			font-size: 12px;
+			width: 100%;
+			text-align: center;
+			white-space: nowrap;
+		    overflow: hidden;
+		    display:inline-block;
+			text-overflow: ellipsis;
+		}
+
+		.btn {
+			display: block;
+			width: 80%;
+			margin: auto;
+
+			&.inactive {
+				opacity: .5;
+			}
+		}
+
+		figure {
+			display: block;
+			margin: auto;
+			width: 80%;
+			overflow: hidden;
+			border-radius: .5em .5em 0 0;
+
+			img {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+}

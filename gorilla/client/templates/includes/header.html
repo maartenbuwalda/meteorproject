@@ -1,3 +1,14 @@
 <template name="header">
-	<h1>Gorilla Warfare</h1>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="{{pathFor 'usersList'}}">Gorilla Warfare</a>
+			</div>
+			<div class="collapse navbar-collapse" id="navigation">
+				<ul class="nav navbar-nav navbar-right">
+					{{> loginButtons}}
+				</ul>
+			</div>
+		</div>
+	</nav>
 </template>

@@ -1,0 +1,1 @@
+Challengers = new Mongo.Collection('challengers');
