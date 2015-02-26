@@ -1,0 +1,9 @@
+<template name="login">
+	{{#if currentUser}}
+		<p>Hello, {{currentUser.username}}</p>
+		<a id="logout">Log out</a>
+	{{else}}
+		{{> loginForm}}
+		{{> registerForm}}
+	{{/if}}
+</template>

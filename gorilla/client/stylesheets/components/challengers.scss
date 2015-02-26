@@ -1,0 +1,81 @@
+#match {
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;      /* TWEENER - IE 10 */
+	display: -webkit-flex;     /* NEW - Chrome */
+	display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+	flex-direction: row;
+	flex-wrap: nowrap;
+	-webkit-flex-flow: row wrap;
+	-moz-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-justify-content: space-between;
+  	justify-content: space-between;
+
+	.challenger {
+		width: 40%;
+		// overflow: hidden;
+
+		h2 {
+			text-align: center;
+		}
+
+		p {
+			margin-top: 10px;
+			font-size: 25px;
+			text-align: center;
+		}
+
+		.btn {
+			display: block;
+			width: 80%;
+			margin: auto;
+			background-color: tomato;
+			color: white;
+			-webkit-transition: all .1s ease-in-out;
+			-moz-transition: all .1s ease-in-out;
+			-o-transition: all .1s ease-in-out;
+			transition: all .1s ease-in-out;
+
+			&:hover {
+				color: white;
+			}
+
+			&:active {
+				transform:translateY(5px);
+				background-color: black;
+				color: white;
+				width: 75%;
+			}
+
+			&.inactive {
+				opacity: .5;
+			}
+		}
+
+		figure {
+			display: block;
+			margin: auto;
+			width: 80%;
+			overflow: hidden;
+
+			img {
+				display: block;
+				width: 100%;
+			}
+		}
+
+		&#player2 {
+			figure {
+				img {
+					-moz-transform: scaleX(-1);
+			        -o-transform: scaleX(-1);
+			        -webkit-transform: scaleX(-1);
+			        transform: scaleX(-1);
+			        filter: FlipH;
+			        -ms-filter: "FlipH";
+				}
+			}
+		}
+	}
+}

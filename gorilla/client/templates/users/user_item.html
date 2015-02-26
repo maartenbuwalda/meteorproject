@@ -1,14 +1,24 @@
 <template name="userItem">
 	<div class="user">
 		<div class="user-content">
-			<h3>{{username}}{{#if checkUser}} (you){{/if}}</h3>
-			<figure>
-				<img src="http://www.earthtimes.org/newsimage/revelatory-ape-maturity-sumatra-borneo_22313.jpg" alt="ape">
+			<h3>{{username}}</h3>
+			<p>Wins: {{challengers.wins}}</p>
+			<p>Losses: {{challengers.losses}}</p>
+			<figure style="background-color: {{profile.color}}">
+				<img src="http://www.maartenbuwalda.com/images/avatar.png" alt="ape">
 			</figure>
-			{{#if checkUser}}
-			<a class="discuss btn btn-default inactive">Challenge</a>
-			{{else}}
-			<a class="discuss btn btn-default" id="challenge-btn">Challenge</a>
+				{{#if checkUser}}
+				<a class="discuss btn btn-default">This is you</a>
+				{{else}}
+				{{#if checkOwnChallenge}}
+				<a class="discuss btn btn-default cancel" id="cancel-btn">Cancel</a>
+				{{else}}
+				{{#if checkEnemyChallenge}}
+				<a class="discuss btn btn-default accept" id="accept-btn">Accept</a>
+				{{else}}
+				<a class="discuss btn btn-default" id="challenge-btn">Challenge</a>
+				{{/if}}
+				{{/if}}
 			{{/if}}
 		</div>
 	</div>

@@ -2,7 +2,11 @@
 	<div class="container">
 		{{> header}}
 		<div id="main">
-			{{> yield}}
+			{{#if checkMatch}}
+				{{> match}}
+			{{else}}
+				{{> yield}}
+			{{/if}}
 		</div>
 	</div>
 </template>
