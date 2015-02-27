@@ -1,6 +1,8 @@
 Meteor.subscribe("challengers");
 
 Template.userItem.helpers({
+	// Because users and challengers are two different collections, 
+	// we have to return the challengers to add their score to the userlist
 	challengers: function() {
 		var challengers = Challengers.find().fetch();
 
@@ -10,11 +12,13 @@ Template.userItem.helpers({
 			}
 		}
 	},
+	// Check if this user is the current user. If so, add 'This is you'
 	checkUser: function () {
 		if(Meteor.user().username === this.username){
 			return true;
 		}
 	},
+	// Check who you have challenged
 	checkOwnChallenge: function() {
 		var challengers = Challengers.find().fetch();
 
@@ -24,6 +28,7 @@ Template.userItem.helpers({
 			}
 		}
 	},
+	// Check who the enemy has challenged. If this is you, an 'accept' button will be showed
 	checkEnemyChallenge: function() {
 		var challengers = Challengers.find().fetch();
 
@@ -36,6 +41,7 @@ Template.userItem.helpers({
 });
 
 Template.userItem.events({
+	// Set the click events for the user list: challenge, cancel, accept
   'click #challenge-btn': function () {
   		Challengers.update(
 		   { _id: Meteor.user().username },
@@ -46,6 +52,7 @@ Template.userItem.events({
 		   }
 		)
 	},
+	// On cancel, clear the challenged field
 	'click #cancel-btn': function () {
   		Challengers.update(
 		   { _id: Meteor.user().username },
@@ -56,6 +63,8 @@ Template.userItem.events({
 		   }
 		)
 	},
+	// On accept, insert and set a match. 
+	// The 'challenged' fields are wiped, because there is already a match.
 	'click #accept-btn': function () {
 		Matches.insert({
 			_id: this.username + "-match",
