@@ -5,11 +5,8 @@
 # but you can also edit it by hand.
 
 meteor-platform
-insecure
 mizzao:bootstrap-3
-underscore
 fourseven:scss
-sacha:spin
 iron:router
 ian:accounts-ui-bootstrap-3
 accounts-password
