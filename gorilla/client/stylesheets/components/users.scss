@@ -17,13 +17,27 @@
 		overflow: hidden;
 
 		h3 {
-			font-size: 12px;
 			width: 100%;
 			text-align: center;
 			white-space: nowrap;
 		    overflow: hidden;
 		    display:inline-block;
 			text-overflow: ellipsis;
+			margin-bottom: 0;
+		}
+
+		p {
+			color: green;
+			text-align: center;
+
+			span {
+				color: red;
+
+				&:before {
+					content:" - ";
+					color: black;
+				}
+			}
 		}
 
 		.btn {

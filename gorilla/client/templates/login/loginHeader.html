@@ -1,7 +1,9 @@
 <template name="login">
 	{{#if currentUser}}
-		<p>Hello, {{currentUser.username}}</p>
-		<a id="logout">Log out</a>
+		<div id="loggedin">
+			<p>Hello, {{currentUser.username}}</p>
+			<a id="logout">Log out</a>
+		</div>
 	{{else}}
 		{{> loginForm}}
 		{{> registerForm}}

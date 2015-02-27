@@ -58,6 +58,7 @@ Template.userItem.events({
 	},
 	'click #accept-btn': function () {
 		Matches.insert({
+			_id: this.username + "-match",
 			challenger: this.username,
 			challengerColor: this.profile.color,
 			challengerPoints: 0,
@@ -72,7 +73,7 @@ Template.userItem.events({
 		      	challenged: ''
 		      }
 		   }
-		)
+		);
 		Challengers.update(
 		   { _id: this.username },
 		   { $set:
@@ -80,6 +81,6 @@ Template.userItem.events({
 		      	challenged: ''
 		      }
 		   }
-		)
+		);
 	},
 });

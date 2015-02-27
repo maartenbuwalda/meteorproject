@@ -37,7 +37,7 @@ Template.match.events({
 		      }
 		   }
 		)
-		if(currentMatch.challengerPoints === 10){
+		if(currentMatch.challengerPoints === 50){
 			challenger.wins ++;
 			challenged.losses ++;
 			Challengers.update(
@@ -70,7 +70,7 @@ Template.match.events({
 		      }
 		   }
 		)
-		if(currentMatch.challengedPoints === 100){
+		if(currentMatch.challengedPoints === 50){
 			challenged.wins ++;
 			challenger.losses ++;
 			Challengers.update(
