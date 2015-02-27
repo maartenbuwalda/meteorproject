@@ -1,10 +1,12 @@
 Meteor.subscribe("matches");
 
+// Set empty vars which will be filled by the helper function
 var currentMatch = []
 var challenger = {}
 var challenged = {}
 
 Template.match.helpers({
+	// Get info about the currentmatch, and fill in the empty vars
 	matches: function(){
 		var matches = Matches.find().fetch();
 		var challengers = Challengers.find().fetch();
@@ -27,8 +29,10 @@ Template.match.helpers({
 });
 
 Template.match.events({
+	// Set click events for the match 'hit' button
 	'click #hit-btn': function () {
 		if(Meteor.user().username === currentMatch.challenged){
+			// Add points the challenged player
 	  		currentMatch.challengedPoints ++;
 	  		Matches.update(
 			   { _id: currentMatch._id },
@@ -38,6 +42,7 @@ Template.match.events({
 			      }
 			   }
 			)
+			// At 50 points, the challenged wins, and the challenger loses
 			if(currentMatch.challengedPoints === 50){
 				challenged.wins ++;
 				challenger.losses ++;
@@ -57,6 +62,7 @@ Template.match.events({
 				      }
 				   }
 				)
+				// This match is done, the wins and losses have been counted, so let's remove the match
 				Matches.remove( {"_id": currentMatch._id});
 			}
 		} else if (Meteor.user().username === currentMatch.challenger) {

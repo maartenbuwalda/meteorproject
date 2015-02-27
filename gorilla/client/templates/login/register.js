@@ -4,7 +4,6 @@ Template.registerForm.events({
 	    var username = template.find('#account-username').value;
 	    var password = template.find('#account-password').value;
 	    var color = template.find('#account-color').value;
-	    console.log(username, password, color);
 
 	    Accounts.createUser({
 		    username: username,
