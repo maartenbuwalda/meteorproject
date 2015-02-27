@@ -30,37 +30,10 @@
 			}
 		}
 
-		.btn {
-			display: block;
-			width: 80%;
-			margin: auto;
-			background-color: tomato;
-			color: white;
-			-webkit-transition: all .1s ease-in-out;
-			-moz-transition: all .1s ease-in-out;
-			-o-transition: all .1s ease-in-out;
-			transition: all .1s ease-in-out;
-
-			&:hover {
-				color: white;
-			}
-
-			&:active {
-				transform:translateY(5px);
-				background-color: black;
-				color: white;
-				width: 75%;
-			}
-
-			&.inactive {
-				opacity: .5;
-			}
-		}
-
 		figure {
 			display: block;
 			margin: auto;
-			width: 60%;
+			width: 30%;
 			overflow: hidden;
 
 			img {
@@ -85,4 +58,33 @@
 			}
 		}
 	}
+
+	.btn {
+			display: block;
+			width: 40%;
+			height: 4em;
+			line-height: 3em;
+			margin: auto;
+			background-color: tomato;
+			color: white;
+			-webkit-transition: all .1s ease-in-out;
+			-moz-transition: all .1s ease-in-out;
+			-o-transition: all .1s ease-in-out;
+			transition: all .1s ease-in-out;
+
+			&:hover {
+				color: white;
+			}
+
+			&:active {
+				transform:translateY(5px);
+				background-color: black;
+				color: white;
+				width: 35%;
+			}
+
+			&.inactive {
+				opacity: .5;
+			}
+		}
 }

@@ -27,69 +27,69 @@ Template.match.helpers({
 });
 
 Template.match.events({
-	'click #player1-hit': function () {
-		currentMatch.challengerPoints ++;
-  		Matches.update(
-		   { _id: currentMatch._id },
-		   { $set:
-		      {
-		      	challengerPoints: currentMatch.challengerPoints,
-		      }
-		   }
-		)
-		if(currentMatch.challengerPoints === 50){
-			challenger.wins ++;
-			challenged.losses ++;
-			Challengers.update(
-			   { _id: currentMatch.challenger },
+	'click #hit-btn': function () {
+		if(Meteor.user().username === currentMatch.challenged){
+	  		currentMatch.challengedPoints ++;
+	  		Matches.update(
+			   { _id: currentMatch._id },
 			   { $set:
 			      {
-			      	wins: challenger.wins
+			      	challengedPoints: currentMatch.challengedPoints,
 			      }
 			   }
 			)
-			Challengers.update(
-				{ _id: currentMatch.challenged },
-				{ $set:
-			      {
-			      	losses: challenged.losses
-			      }
-			   }
-			)
-			Matches.remove( {"_id": currentMatch._id});
-		}
-	},
-	'click #player2-hit': function () {
-		console.log(challenged.wins);
-  		currentMatch.challengedPoints ++;
-  		Matches.update(
-		   { _id: currentMatch._id },
-		   { $set:
-		      {
-		      	challengedPoints: currentMatch.challengedPoints,
-		      }
-		   }
-		)
-		if(currentMatch.challengedPoints === 50){
-			challenged.wins ++;
-			challenger.losses ++;
-			Challengers.update(
-			   { _id: currentMatch.challenged },
+			if(currentMatch.challengedPoints === 50){
+				challenged.wins ++;
+				challenger.losses ++;
+				Challengers.update(
+				   { _id: currentMatch.challenged },
+				   { $set:
+				      {
+				      	wins: challenged.wins
+				      }
+				   }
+				)
+				Challengers.update(
+				   { _id: currentMatch.challenger },
+				   { $set:
+				      {
+				      	losses: challenger.losses
+				      }
+				   }
+				)
+				Matches.remove( {"_id": currentMatch._id});
+			}
+		} else if (Meteor.user().username === currentMatch.challenger) {
+			currentMatch.challengerPoints ++;
+	  		Matches.update(
+			   { _id: currentMatch._id },
 			   { $set:
 			      {
-			      	wins: challenged.wins
+			      	challengerPoints: currentMatch.challengerPoints,
 			      }
 			   }
 			)
-			Challengers.update(
-			   { _id: currentMatch.challenger },
-			   { $set:
-			      {
-			      	losses: challenger.losses
-			      }
-			   }
-			)
-			Matches.remove( {"_id": currentMatch._id});
+			if(currentMatch.challengerPoints === 50){
+				challenger.wins ++;
+				challenged.losses ++;
+				Challengers.update(
+				   { _id: currentMatch.challenger },
+				   { $set:
+				      {
+				      	wins: challenger.wins
+				      }
+				   }
+				)
+				Challengers.update(
+				   { _id: currentMatch.challenged },
+				   { $set:
+				      {
+				      	losses: challenged.losses
+				      }
+				   }
+				)
+				Matches.remove( {"_id": currentMatch._id});
+			}
 		}
 	}
 });

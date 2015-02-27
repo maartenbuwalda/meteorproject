@@ -1,8 +1,10 @@
 <template name="userItem">
 	<div class="user">
 		<div class="user-content">
-			<h3>{{username}}</h3>
-			<p>{{challengers.wins}} <span>{{challengers.losses}}</span></p>
+			<div id="user-info">
+				<h3>{{username}}</h3>
+				<p>{{challengers.wins}} <span>{{challengers.losses}}</span></p>
+			</div>
 			<figure style="background-color: {{profile.color}}">
 				<img src="http://www.maartenbuwalda.com/images/avatar.png" alt="ape">
 			</figure>
